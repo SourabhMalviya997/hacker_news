@@ -1,181 +1,64 @@
-class Article {
-  final String text;
-  final String domain;
-  final String by;
-  final String age;
-  final int score;
-  final int commentsCount;
+library article;
 
-  const Article({this.text, this.domain, this.by, this.age, this.score, this.commentsCount});
+import 'package:built_value/built_value.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/serializer.dart';
+import 'serializers.dart';
+
+part 'article.g.dart';
+
+abstract class Article implements Built<Article, ArticleBuilder> {
+  static Serializer<Article> get serializer => _$articleSerializer;
+
+  //fields
+  int get id;
+
+  @nullable
+  bool get deleted;
+
+  String get type;
+
+  String get by;
+
+  int get time;
+
+  @nullable
+  String get text;
+
+  @nullable
+  bool get dead;
+
+  @nullable
+  int get parent;
+
+  @nullable
+  int get poll;
+
+  BuiltList<int> get kids;
+
+  String get url;
+
+  int get score;
+
+  String get title;
+
+  @nullable
+  BuiltList<int> get parts;
+
+  int get descendants;
+
+  Article._();
+
+  factory Article([updates(ArticleBuilder builder)]) = _$Article;
+
+  factory Article.fromJson(Map<String, dynamic> json) {
+    if (json == null) return null;
+
+    return Article(
+      (build) => build
+        ..id = json['id'] ?? 0
+        ..title = json['title'] ?? '[null]'
+        ..by = json['by'] ?? '',
+    );
+  }
 }
-
-final articles = [
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'www.google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'www.google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'www.google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'www.google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'www.google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-  Article(
-    text: 'lorem lorem lorem lorem lorem',
-    age: '3 day',
-    by: 'google.co.in',
-    commentsCount: 12,
-    domain: 'google.co.in',
-    score: 150,
-  ),
-];

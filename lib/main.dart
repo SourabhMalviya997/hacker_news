@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _articles = List.from(articles);
+  // final _articles = List.from(articles);
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +43,13 @@ class _MyHomePageState extends State<MyHomePage> {
         onRefresh: () async {
           await Future.delayed(const Duration(milliseconds: 1000));
           setState(() {
-            _articles.removeAt(0);
+            // _articles.removeAt(0);
           });
         },
-        child: ListView.builder(
-          itemBuilder: (context, index) => _buildItem(_articles[index]),
-          itemCount: _articles.length,
-        ),
+        // child: ListView.builder(
+        //   itemBuilder: (context, index) => _buildItem(_articles[index]),
+        //   itemCount: _articles.length,
+        // ),
       ),
     );
   }
