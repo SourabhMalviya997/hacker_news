@@ -37,9 +37,6 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
       'title',
       serializers.serialize(object.title,
           specifiedType: const FullType(String)),
-      'descendants',
-      serializers.serialize(object.descendants,
-          specifiedType: const FullType(int)),
     ];
     if (object.deleted != null) {
       result
@@ -77,6 +74,12 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
         ..add(serializers.serialize(object.parts,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.descendants != null) {
+      result
+        ..add('descendants')
+        ..add(serializers.serialize(object.descendants,
+            specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -238,9 +241,6 @@ class _$Article extends Article {
     }
     if (title == null) {
       throw new BuiltValueNullFieldError('Article', 'title');
-    }
-    if (descendants == null) {
-      throw new BuiltValueNullFieldError('Article', 'descendants');
     }
   }
 
