@@ -10,15 +10,19 @@ abstract class Article implements Built<Article, ArticleBuilder> {
   static Serializer<Article> get serializer => _$articleSerializer;
 
   //fields
+  @nullable
   int get id;
 
   @nullable
   bool get deleted;
 
+  @nullable
   String get type;
 
+  @nullable
   String get by;
 
+  @nullable
   int get time;
 
   @nullable
@@ -35,10 +39,13 @@ abstract class Article implements Built<Article, ArticleBuilder> {
 
   BuiltList<int> get kids;
 
+  @nullable
   String get url;
 
+  @nullable
   int get score;
 
+  @nullable
   String get title;
 
   @nullable
@@ -50,4 +57,8 @@ abstract class Article implements Built<Article, ArticleBuilder> {
   Article._();
 
   factory Article([updates(ArticleBuilder builder)]) = _$Article;
+}
+
+enum ArticleType{
+  NEW, TOP
 }
