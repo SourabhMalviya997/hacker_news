@@ -24,10 +24,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  open_url: ^1.0.1
+  url_launcher: ^5.7.8
   built_value: ^7.1.0
   built_collection: ^4.3.2
   http: ^0.12.2
+  rxdart: ^0.24.1
 
 dev_dependencies:
   flutter_test:
@@ -43,11 +44,12 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: EBGaramond
+      fonts:
+        - asset: fonts/EBGaramond-Regular.ttf
+        - asset: fonts/EBGaramond-Bold.ttf
+          weight: 800
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

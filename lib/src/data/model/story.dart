@@ -1,13 +1,13 @@
-library article;
+library story;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'article.g.dart';
+part 'story.g.dart';
 
-abstract class Article implements Built<Article, ArticleBuilder> {
-  static Serializer<Article> get serializer => _$articleSerializer;
+abstract class Story implements Built<Story, StoryBuilder> {
+  static Serializer<Story> get serializer => _$storySerializer;
 
   //fields
   @nullable
@@ -54,11 +54,9 @@ abstract class Article implements Built<Article, ArticleBuilder> {
   @nullable
   int get descendants;
 
-  Article._();
+  Story._();
 
-  factory Article([updates(ArticleBuilder builder)]) = _$Article;
+  factory Story([updates(StoryBuilder builder)]) = _$Story;
 }
 
-enum ArticleType{
-  NEW, TOP
-}
+enum StoryType { NEW, TOP }

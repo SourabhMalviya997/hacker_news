@@ -1,18 +1,16 @@
-import 'package:hacker_news/src/model/article.dart';
-
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
-import 'package:hacker_news/src/model/serializers.dart';
+import 'package:hacker_news/src/data/model/story.dart';
+import 'package:hacker_news/src/data/model/serializers.dart';
 
-List<int> parseJsonArray(String jsonStr) {
+
+List<int> parseArray(String jsonStr) {
   final json = jsonDecode(jsonStr);
   return List<int>.from(json);
 }
 
-Article parseArticle(String jsonStr) {
+Story parseStory(String jsonStr) {
   final json = jsonDecode(jsonStr);
-  final article = jsonSerializers.deserializeWith(Article.serializer, json);
+  final article = jsonSerializers.deserializeWith(Story.serializer, json);
   return article;
 }
-

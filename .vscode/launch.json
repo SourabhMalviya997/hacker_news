@@ -7,7 +7,7 @@
         {
             "name": "hacker_news",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
         }
     ]
 }
